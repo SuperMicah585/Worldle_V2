@@ -1,0 +1,40 @@
+
+.container{
+    display: flex;
+    height: 100%;
+
+}
+
+.Search{
+  position: fixed;
+  left: 35%;
+  bottom: 70%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.Pie {
+  position: fixed;
+  left: 30%;
+  bottom: 30%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+
+}
+.Card{
+  position: fixed;
+  left: 42.5%;
+  right: .5%;
+  bottom: 75%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+
+}
+
+.tasks {
+  position: fixed;
+  left: 23%;
+  bottom: -18%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
