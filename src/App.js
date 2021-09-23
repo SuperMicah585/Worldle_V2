@@ -13,12 +13,10 @@ import Home from "./pages/home/Home"
 function App() {
   return <body bgcolor= "F8F8F8">
   <div>
-
-    <Topbar/>
       <div className="container">
         <Sidebar/>
-        <Home/>
-      </div>
+      
+      <div className="home">
 
 
       <div className = "Search">
@@ -35,7 +33,9 @@ function App() {
     <div className = "tasks">
     <Grid/>
     </div>
+    </div>
 
+    </div>
     </div>
     </body>
 }
