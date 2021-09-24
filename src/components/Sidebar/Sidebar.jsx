@@ -12,8 +12,18 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import PeopleIcon from '@mui/icons-material/People';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const drawerWidth = 240;
+const tabs =[
+{index: 1, text: 'Home', icon: <HomeIcon/> },
+{index: 2, text: 'Tasks', icon: <FormatListNumberedIcon/> },
+{index: 2, text: 'Users', icon: <PeopleIcon/> },
+{index: 2, text: 'Admin', icon:<AdminPanelSettingsIcon/> }
+]
 
 export default function PermanentDrawerLeft() {
   return (
@@ -25,7 +35,7 @@ export default function PermanentDrawerLeft() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Permanent drawer
+            TASQ
           </Typography>
         </Toolbar>
       </AppBar>
@@ -44,25 +54,18 @@ export default function PermanentDrawerLeft() {
         <Toolbar />
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
+          {tabs.map(tab => (
+            <ListItem button key={tab.text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {tab.icon}
+                
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={tab.text} />
             </ListItem>
           ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
         </List>
       </Drawer>
       <Box
