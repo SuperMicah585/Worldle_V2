@@ -1,63 +1,31 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import Paper from "@material-ui/core/Paper";
-const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  {
-    field: 'firstName',
-    headerName: 'First name',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    width: 150,
-    editable: true,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 110,
-    editable: true,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.getValue(params.id, 'firstName') || ''} ${
-        params.getValue(params.id, 'lastName') || ''
-      }`,
-  },
-];
+import React from 'react';
+import { render } from 'react-dom';
+import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
-export default function DataGridDemo() {
-  return (
-    <div style={{ height: '35rem', width: '472%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
-        checkboxSelection
-        disableSelectionOnClick
-      />
-    </div>
-  );
-}
+   const rowData = [
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+       {Name: "Marshall", Phone_number: "360-921-2222", Task:'do dishes', Priority_level: '3', Status: 'Solved'},
+   ];
+
+   export default function RowAndColumnSpacing() {
+   return (
+       <div className="ag-theme-alpine" style={{height: 400, width: 1000}}>
+           <AgGridReact
+               rowData={rowData}>
+               <AgGridColumn field="Name"></AgGridColumn>
+               <AgGridColumn field="Phone_number"></AgGridColumn>
+               <AgGridColumn field="Task"></AgGridColumn>
+               <AgGridColumn field="Priority_level"></AgGridColumn>
+               <AgGridColumn field="Status"></AgGridColumn>
+           </AgGridReact>
+       </div>
+   );
+};
