@@ -35,7 +35,7 @@ export default function PermanentDrawerLeft() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            TASQ
+            TASQ: the best
           </Typography>
         </Toolbar>
       </AppBar>
