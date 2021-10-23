@@ -19,26 +19,103 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 
 class mainGrid extends Component {
+    constructor(props) {
+        super(props);
     
-
-
-
-
-    render() {
-      return (
-        <div className="ag-theme-alpine" style={{height: '100%', width: '70%'}}>
-        <AgGridReact
-            rowSelection = 'multiple'
-            rowData={rowData}>
-            <AgGridColumn field="Task" rowDrag={true} checkboxSelection={true}></AgGridColumn>
-            <AgGridColumn field="Worker" sortable={true}></AgGridColumn>
-            <AgGridColumn field="start_time"></AgGridColumn>
-            <AgGridColumn field="Priority"></AgGridColumn>
-            <AgGridColumn field="Complete Time"></AgGridColumn>
-        </AgGridReact>
-    </div>
-    );
-}
-}
+        this.state = {
+          columnDefs: [
+            {
+              field: 'athlete',
+              minWidth: 150,
+            },
+            {
+              field: 'age',
+              maxWidth: 90,
+            },
+            {
+              field: 'country',
+              minWidth: 150,
+            },
+            {
+              field: 'year',
+              maxWidth: 90,
+            },
+            {
+              field: 'date',
+              minWidth: 150,
+            },
+            {
+              field: 'sport',
+              minWidth: 150,
+            },
+            { field: 'gold' },
+            { field: 'silver' },
+            { field: 'bronze' },
+            { field: 'total' },
+          ],
+          defaultColDef: {
+            flex: 1,
+            minWidth: 100,
+          },
+          rowData: [],
+        };
+      }
+    //This returns the data that has been selected
+      getSelectedRowData = () => {
+        let selectedNodes = this.gridApi.getSelectedNodes();
+        let selectedData = selectedNodes.map(node => node.data);
+        //Change this alert to post a delete/edit request to the api
+        alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
+        return selectedData;
+      };
+    
+      onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+        // Call the API and return the lists of tasks
+        const httpRequest = new XMLHttpRequest();
+        const updateData = data => {
+          this.setState({ rowData: data });
+        };
+    
+        httpRequest.open(
+          'GET',
+          'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json'
+        );
+        httpRequest.send();
+        httpRequest.onreadystatechange = () => {
+          if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            updateData(JSON.parse(httpRequest.responseText));
+          }
+        };
+      };
+    
+      render() {
+        return (
+          <div style={{ width: '95vw', height: '100vh' }}>
+            <button 
+              onClick={this.getSelectedRowData}
+              style={{margin: 10}}
+              >Get Selected Nodes</button>
+            <div
+              id="myGrid"
+              style={{
+                height: '100%',
+                width: '100%',
+              }}
+              className="ag-theme-alpine"
+            >
+              <AgGridReact
+                columnDefs={this.state.columnDefs}
+                defaultColDef={this.state.defaultColDef}
+                onGridReady={this.onGridReady}
+                rowData={this.state.rowData}
+                rowSelection="multiple"
+              />
+            </div>
+          </div>
+        );
+      }
+    }
 
 export default mainGrid;
