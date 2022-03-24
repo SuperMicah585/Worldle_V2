@@ -1,0 +1,21 @@
+.alert-shown {
+  opacity: 1;
+  transition: all 250ms linear;
+color: lightgreen;
+font-size: 20px;
+display: flex;
+position: fixed;
+
+
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: all 250ms linear 2s;
+color: lightgreen;
+font-size: 20px;
+display: flex;
+position: fixed;
+
+
+}

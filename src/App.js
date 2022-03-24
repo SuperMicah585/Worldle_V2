@@ -1,19 +1,13 @@
-import Sidebar from "./components/Sidebar/Sidebar";
-import "./app.css"
-import Home from "./pages/home/Home"
-
-
+import Game from "./components/Game"
 
 function App() {
-  return <body bgcolor= "F8F8F8">
-  <div>
-      <div className="container">
-        <Sidebar/>
-        <Home/>
-      
+  return <div className="App">
 
-    </div>
-    </div>
-    </body>
+  <Game/>
+
+  </div>
+
+
 }
+
 export default App;

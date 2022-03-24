@@ -1,0 +1,30 @@
+.squared{
+background-color: black;
+color: white;
+font-size: 50px;
+font-weight: bold;
+min-height: 80px;
+min-width: 80px;
+vertical-align: top;
+}
+.Grids{
+  padding: 10px;
+  text-align: center;
+  background: black;
+}
+.keyboard{
+  padding: 10px;
+  text-align: center;
+  background: black;
+}
+.square{
+  min-height: 70px;
+  font-weight: bold;
+  width: 9%;
+  background-color: grey;
+  color: white;
+}
+.boxed {
+  height: 32px;
+
+}
