@@ -77,52 +77,6 @@ class Square extends React.Component {
 
     }
 
-    renderSquare(i) {
-      p++;
-      return(
-      <KeySquare
-      value={i} //possibly change how this is stored, but that is determined by if I can access it
-      onClick={() => this.handleClick(i)}
-      />
-
-    );
-    }
-
-
-winfunction(){
-  if((this.state.triggers) ===true){
-return(
-  <Win
-  trigger = {this.state.triggers}
-  />
-)
-}
-
-}
-
-
-
-
-not_wordfunction(){
-  if((this.state.not_word) ===true){
-return(
-
-  <Notword_popup
-  />
-
-)
-}
-else
-return(
-  <div class="boxed">
-
-</div>);
-}
-
-
-
-
-
 
       async handleClick(i) { //functionality for the Grid
 
@@ -133,9 +87,10 @@ return(
       if(i==='Enter' && x/enter_tracker===5){
         enter_tracker++;
         const guess =  squares.slice(x-5,x);
+        console.log(guess)
         const response_Feedback = await evaluateGuess(['R','E', 'A', 'C','T'], guess,enter_tracker )
 
-
+        console.log(guess)
         if(response_Feedback === "You Win!"){
 
           this.setState({triggers:true})
@@ -154,30 +109,33 @@ else{
       for (var z=0; z<response_Feedback.length; z++){
         var c = response_Feedback.charAt(z);
           //activate color for the button
+
+        if (c === '-'){
+          if ((document.getElementById(guess[z]).style.background) !== "rgb(221, 201, 141)"){
+          document.getElementById(guess[z]).style.background="#606060";
+        }
+
+        }
         if (c === 'O'){
 
           // position in string *(1-enter_tracker)*290)+58) +(10*(1-enter_tracket))
           //every time rendered goes up by (*60). 0-60. 58-118
           // p keep trackf of renders.
           // 0 -58, 60 -118, 120 -178
-          var yellow_color = ((((p/54)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2))
+          var yellow_color = ((((p/56)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2))
 
           //0/58, 5/29, 10/29, 15/29, 20/29
 
-
           document.getElementById(guess[z]).style.background="#ddc98d";
-          document.getElementById(yellow_color).style.background="#ddc98d"; //need to access button in square compenent
+          document.getElementById(yellow_color).style.background="#ddc98d"; //changes colors for keyboard + grid
         }
-        else if(c === 'X'){
-          var green_color = ((((p/54)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2))
+         if(c === 'X'){
+          var green_color = ((((p/56)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2))
           document.getElementById(guess[z]).style.background="#00d084";
           document.getElementById(green_color).style.background="#00d084";
 
         }
-        else{
 
-          document.getElementById(guess[z]).style.background="#606060";
-        }
       }
     }
 
@@ -206,7 +164,18 @@ else{
     }
     }
 
-    renderSquared(i) { //adds button functionality to Grid
+    renderSquare(i) { //adds functionality to keyboard
+      p++;
+      return(
+      <KeySquare
+      value={i}
+      onClick={() => this.handleClick(i)}
+      />
+
+    );
+    }
+
+    renderSquared(i) { //adds button functionality to the Grid
       return (
 
 
@@ -219,6 +188,37 @@ else{
         />
 
       );
+    }
+
+
+    winfunction(){
+      if((this.state.triggers) ===true){
+    return(
+      <Win
+      trigger = {this.state.triggers}
+      />
+    )
+    }
+
+    }
+
+
+
+
+    not_wordfunction(){
+      if((this.state.not_word) ===true){
+    return(
+
+      <Notword_popup
+      />
+
+    )
+    }
+    else
+    return(
+      <div className="boxed">
+
+    </div>);
     }
 
 
@@ -296,6 +296,7 @@ else{
           {this.renderSquare('S')}
           {this.renderSquare('D')}
           {this.renderSquare('F')}
+          {this.renderSquare('G')}
           {this.renderSquare('H')}
           {this.renderSquare('J')}
           {this.renderSquare('K')}

@@ -5,7 +5,7 @@ import "./Game.css"
 export default function Home() {
 return(
 <div className = "Worldle">
-<body>
+
 
 <div className = "Header">
 <Header/>
@@ -15,7 +15,7 @@ return(
 <Grid/>
 </div>
 
-</body>
+
 
 </div>
 )
