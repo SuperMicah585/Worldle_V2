@@ -125,8 +125,9 @@ else{
           var yellow_color = ((((p/56)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2))
 
           //0/58, 5/29, 10/29, 15/29, 20/29
-
+          if ((document.getElementById(guess[z]).style.background) !== "rgb(0, 208, 132)"){
           document.getElementById(guess[z]).style.background="#ddc98d";
+        }
           document.getElementById(yellow_color).style.background="#ddc98d"; //changes colors for keyboard + grid
         }
          if(c === 'X'){
