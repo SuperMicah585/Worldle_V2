@@ -1,5 +1,6 @@
 {
   "name": "tasq-dashboard",
+   "homepage":"https://superlazereyesboomboom.github.io/Worldle_V2/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "ag-grid-react": "^26.0.0",
     "axios": "^0.24.0",
     "chart.js": "^3.5.1",
+    "gh-pages": "^3.2.3",
     "material": "^0.4.3",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.5",
@@ -37,6 +39,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
