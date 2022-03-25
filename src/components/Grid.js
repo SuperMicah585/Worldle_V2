@@ -26,12 +26,13 @@ class Square extends React.Component {
         {unique_id++}
       return (
 
-        <button id={unique_id} style={{ backgroundColor: "black" }}
+        <button id={unique_id} style={{ backgroundColor: "black" }} //need to rethink this. Not working.
                                 //need to be able to increment ID so each square is unique, but can't iterate because it is rendered everytime keyboard is pressed
           className="squared"
           onClick={() => console.log("this does nothing")}
         >
           {this.props.value}
+          {console.log(unique_id)}
         </button>
       );
     }
@@ -126,7 +127,7 @@ else{
 
           //0/58, 5/29, 10/29, 15/29, 20/29
           console.log(yellow_color);
-          console.log(document.getElementById(guess[z]));
+          console.log(document.getElementById(yellow_color));
           if ((document.getElementById(guess[z]).style.background) !== "rgb(0, 208, 132)"){
           document.getElementById(guess[z]).style.background="#ddc98d";
         }
