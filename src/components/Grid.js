@@ -32,7 +32,7 @@ class Square extends React.Component {
           onClick={() => console.log("this does nothing")}
         >
           {this.props.value}
-          {console.log(unique_id)}
+          {console.log(unique_id)} //iterates by 30 every render in the published version
         </button>
       );
     }
@@ -118,13 +118,13 @@ else{
 
         }
         if (c === 'O'){
-
+          //
           // position in string *(1-enter_tracker)*290)+58) +(10*(1-enter_tracket))
           //every time rendered goes up by (*60). 0-60. 58-118
           // p keep trackf of renders.
           // 0 -58, 60 -118, 120 -178
-          var yellow_color = ((((p/56)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2));
-
+          var yellow_color = ((150*enter_tracker)+(enter_tracker*5)-5 +z);
+          console.log("heelo")
           //0/58, 5/29, 10/29, 15/29, 20/29
           console.log(yellow_color);
           console.log(document.getElementById(yellow_color));
@@ -134,7 +134,8 @@ else{
           document.getElementById(yellow_color).style.background="#ddc98d"; //changes colors for keyboard + grid
         }
          if(c === 'X'){
-          var green_color = ((((p/56)*60)-2) - (58-(((10*(enter_tracker-2))/58) *58)) + (z*2));
+          var green_color = ((150*enter_tracker)+(enter_tracker*5)-5 +z);
+          console.log(green_color);
           document.getElementById(guess[z]).style.background="#00d084";
           document.getElementById(green_color).style.background="#00d084";
 
