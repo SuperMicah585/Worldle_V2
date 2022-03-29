@@ -5,6 +5,7 @@ import "./Grid.css";
 import { evaluate_Guess, evaluateGuess } from "../evaluate_guess";
 import Win from "./Win_Screen";
 import Notword_popup from "./Notword_popup"
+import Lose from "./you_lose"
 
 //setShowingAlert(true)
 var p = 0; // divide this number by 54 to know how many times the page has been rendered(including 1st load)
@@ -26,13 +27,12 @@ class Square extends React.Component {
         {unique_id++}
       return (
 
-        <button id={unique_id} style={{ backgroundColor: "black" }} //need to rethink this. Not working.
+        <button id={this.props.keys} style={{ backgroundColor: "black" }} //make this equal to a set of array values that dont change.
                                 //need to be able to increment ID so each square is unique, but can't iterate because it is rendered everytime keyboard is pressed
           className="squared"
           onClick={() => console.log("this does nothing")}
         >
           {this.props.value}
-          {console.log(unique_id)} //iterates by 30 every render in the published version
         </button>
       );
     }
@@ -56,6 +56,7 @@ class Square extends React.Component {
            onClick={() => this.props.onClick()} //runs  through function handleclick(this.props.value) = onClick={() => this.handleClick(this.props.value)}
            >
           {this.props.value}
+
         </button>
         );
       }
@@ -68,7 +69,8 @@ class Square extends React.Component {
       super(props);
       this.state = {
         triggers: false,
-          squares: Array(29).fill(null),
+        lose_trigger: false,
+          squares: Array(30).fill(null),
         not_word: false,
       };
 
@@ -99,6 +101,10 @@ class Square extends React.Component {
 
 
         }
+        if (enter_tracker ===7){
+          this.setState({lose_trigger:true})
+
+        }
 
       else if(response_Feedback === "this is not a word"){
          enter_tracker--;
@@ -118,26 +124,24 @@ else{
 
         }
         if (c === 'O'){
-          //
+
           // position in string *(1-enter_tracker)*290)+58) +(10*(1-enter_tracket))
           //every time rendered goes up by (*60). 0-60. 58-118
           // p keep trackf of renders.
           // 0 -58, 60 -118, 120 -178
-          var yellow_color = ((150*enter_tracker)+(enter_tracker*5)-5 +z);
-          console.log("heelo")
+          var calc_var_yellow = z + ((enter_tracker-2)*5)
+          console.log(calc_var_yellow)
+
           //0/58, 5/29, 10/29, 15/29, 20/29
-          console.log(yellow_color);
-          console.log(document.getElementById(yellow_color));
           if ((document.getElementById(guess[z]).style.background) !== "rgb(0, 208, 132)"){
           document.getElementById(guess[z]).style.background="#ddc98d";
         }
-          document.getElementById(yellow_color).style.background="#ddc98d"; //changes colors for keyboard + grid
+          document.getElementById(calc_var_yellow).style.background="#ddc98d"; //changes colors for keyboard + grid
         }
          if(c === 'X'){
-          var green_color = ((150*enter_tracker)+(enter_tracker*5)-5 +z);
-          console.log(green_color);
+          var calc_var_green = z + ((enter_tracker-2)*5)
           document.getElementById(guess[z]).style.background="#00d084";
-          document.getElementById(green_color).style.background="#00d084";
+          document.getElementById(calc_var_green).style.background="#00d084";
 
         }
 
@@ -187,6 +191,7 @@ else{
 
         <Square
           value={this.state.squares[i]}
+          keys = {i}
 
        //Creates the Grid
         //add functionality to squares so that they can change color
@@ -201,6 +206,17 @@ else{
     return(
       <Win
       trigger = {this.state.triggers}
+      />
+    )
+    }
+
+    }
+
+    losefunction(){
+      if((this.state.lose_trigger) ===true){
+    return(
+      <Lose
+      lose_trigger = {this.state.lose_trigger}
       />
     )
     }
@@ -237,6 +253,7 @@ else{
 
 {this.winfunction()}
 {this.not_wordfunction()}
+{this.losefunction()}
 
         <div className = "Grids">
           <div className="board-row">
