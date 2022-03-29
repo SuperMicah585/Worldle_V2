@@ -125,7 +125,7 @@ else{
         }
 
         }
-        if (c === 'O'){
+        if (c === '@'){
 
           // position in string *(1-enter_tracker)*290)+58) +(10*(1-enter_tracket))
           //every time rendered goes up by (*60). 0-60. 58-118
@@ -140,7 +140,7 @@ else{
         }
           document.getElementById(calc_var_yellow).style.background="#ddc98d"; //changes colors for keyboard + grid
         }
-         if(c === 'X'){
+         if(c === '!'){
           var calc_var_green = z + ((enter_tracker-2)*5)
           document.getElementById(guess[z]).style.background="#00d084";
           document.getElementById(calc_var_green).style.background="#00d084";
