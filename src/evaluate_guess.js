@@ -24,7 +24,7 @@ for (let y = 0; y <= 4; y++) {
 for (let y = 0; y <= 4; y++) {
   if(codeCopy[y] === guessesCopy[y]){
     codeCopy[y] = null;
-    guessesCopy[y] ='X';   //order matters so have to set code to null and guesses to green
+    guessesCopy[y] ='!';   //order matters so have to set code to null and guesses to green
   }
 }
 
@@ -32,7 +32,7 @@ for (let y = 0; y <= 4; y++) {
     for (let i = 0; i <= 4; i++) {
       if (guessesCopy[i] === codeCopy[y]){
         codeCopy[y] = null;          //similiar to above, but indexes dont have to match + greens have already been filtered
-        guessesCopy[i] ='O';
+        guessesCopy[i] ='@';
       }
     }
   }
@@ -64,11 +64,11 @@ const is_word = fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+string_
 
 
   for (let i = 0; i <= 4; i++) {
-    if (guessesCopy[i] === 'X') {
-      feedback += "X";
+    if (guessesCopy[i] === '!') {
+      feedback += "!";
     }
-    else if (guessesCopy[i] === "O") { //error becayse a is undefined
-      feedback += "O";
+    else if (guessesCopy[i] === "@") { //error becayse a is undefined
+      feedback += "@";
     }
     else{
       feedback += "-";
@@ -76,7 +76,7 @@ const is_word = fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+string_
   }
 
 //checks to see if they guessed the right word
-if (feedback === 'XXXXX'){
+if (feedback === '!!!!!'){
   feedback = "You Win!"
 
 }
