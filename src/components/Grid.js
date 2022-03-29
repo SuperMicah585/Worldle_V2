@@ -101,15 +101,17 @@ class Square extends React.Component {
 
 
         }
-        if (enter_tracker ===7){
-          this.setState({lose_trigger:true})
 
-        }
 
       else if(response_Feedback === "this is not a word"){
          enter_tracker--;
          this.setState({not_word:true})
 
+
+       }
+
+       else if (enter_tracker ===7){
+         this.setState({lose_trigger:true})
 
        }
 else{
