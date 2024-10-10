@@ -17,9 +17,9 @@ class Win extends React.Component {
       return (
         <div style = {{zIndex:300}}>
         {(this.state["trigger"]) ? (
-        <div className ="popup">
+        <div className ="popup-win">
 
-        <button className="close-btn" onClick={() => this.setState({trigger: false})}>You Win!</button>
+        <button className="close-btn-win" onClick={() => this.setState({trigger: false})}>You Win!</button>
         </div>
  
       ) : "" }

@@ -1,6 +1,6 @@
 
 /* Popup style */
-.popup {
+.popup-win {
   top:0px;
   left:0px;
   position: absolute;
@@ -9,7 +9,7 @@
   display: flex;
 }
 
-.close-btn{
+.close-btn-win{
   position:absolute;
   min-height:100%;
   min-width: 100%;
