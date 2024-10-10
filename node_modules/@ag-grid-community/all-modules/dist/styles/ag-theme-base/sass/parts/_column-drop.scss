@@ -2,13 +2,15 @@
 @mixin ag-theme-base-part-column-drop {
 
     // CELL (SHARED)
-
     .ag-column-drop-cell {
         @include ag-color-property(background, chip-background-color);
         border-radius: ag-param(grid-size) * 4;
         height: ag-param(grid-size) * 4;
         padding: 0 ag-param(grid-size) * 0.5;
+        border: 1px solid transparent;
     }
+
+    @include ag-keyboard-focus((ag-column-drop-cell), 2px);
 
     .ag-column-drop-cell-text {
         margin: 0 ag-param(grid-size);
@@ -106,11 +108,14 @@
 
     .ag-select-agg-func-virtual-list-item {
         cursor: default;
-        line-height: ag-param(grid-size) * 5;
         padding-left: ag-param(grid-size) * 2;
 
         &:hover {
             @include ag-color-property(background-color, selected-row-background-color);
         }
     }
+
+    @include ag-keyboard-focus((
+        ag-select-agg-func-virtual-list-item
+    ), 1px);
 }

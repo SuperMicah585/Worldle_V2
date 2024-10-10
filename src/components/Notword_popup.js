@@ -45,16 +45,11 @@ setTimeout(() => setnot_word(false),1000)
 
 
         >
-          {}
+          <div style = {{backgroundColor:'red',display:'flex',padding:'15px',borderRadius:'10px',zIndex:100}}>
           <strong>Word not found in database</strong>
-            {}
+          </div>
         </div>
 
-//why does it only work with button?
-// button -> changes state to true. Rerenders page and goes through if statement that goes through the onTransitionEnd
-//no buton -> starts as true. shows alert, but never transitions to false. That is the question!
-//-----
-//difference is that we do not use setState with no button
       </div>
     );
 };

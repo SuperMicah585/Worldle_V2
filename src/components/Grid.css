@@ -1,30 +1,47 @@
 .squared{
 background-color: black;
 color: white;
-font-size: 50px;
+min-height: 70px;
+min-width: 70px;
+border-color: white;
+border-width: 2px;
+font-size: xx-large;
 font-weight: bold;
-min-height: 80px;
-min-width: 80px;
-vertical-align: top;
+border-style: solid;
+display: flex; /* Enables flexbox */
+justify-content: center; /* Centers text horizontally */
+align-items: center; /* Centers text vertically */
 }
 .Grids{
-  padding: 10px;
+  align-items: center; 
+  display:flex;
+  flex-direction: column;
   text-align: center;
-  background: black;
+  
+  
+
 }
 .keyboard{
-  padding: 10px;
+
+  margin-top: 70px;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Centers text vertically */
+  flex-direction: column;
   text-align: center;
   background: black;
 }
 .square{
   min-height: 70px;
+  min-width: 9vw;
   font-weight: bold;
-  width: 9%;
   background-color: grey;
+  font-size: 100%;
   color: white;
 }
 .boxed {
   height: 32px;
 
+}
+.board-row{
+  display:flex;
 }

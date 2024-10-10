@@ -27,13 +27,12 @@ class Square extends React.Component {
         {unique_id++}
       return (
 
-        <button id={this.props.keys} style={{ backgroundColor: "black" }} //make this equal to a set of array values that dont change.
+        <div id={this.props.keys} //make this equal to a set of array values that dont change.
                                 //need to be able to increment ID so each square is unique, but can't iterate because it is rendered everytime keyboard is pressed
           className="squared"
-          onClick={() => console.log("this does nothing")}
         >
           {this.props.value}
-        </button>
+        </div>
       );
     }
 
@@ -90,7 +89,7 @@ class Square extends React.Component {
       if(i==='Enter' && x/enter_tracker===5){
         enter_tracker++;
         const guess =  squares.slice(x-5,x);
-        console.log(guess)
+       
         const response_Feedback = await evaluateGuess(['R','E', 'A', 'C','T'], guess,enter_tracker )
 
         console.log(guess)
@@ -230,18 +229,14 @@ else{
 
     not_wordfunction(){
       if((this.state.not_word) ===true){
-    return(
 
+    return(
+      
       <Notword_popup
       />
 
     )
     }
-    else
-    return(
-      <div className="boxed">
-
-    </div>);
     }
 
 
@@ -250,7 +245,7 @@ else{
 
 
       return (
-        <div>
+        <div >
 
 
 {this.winfunction()}

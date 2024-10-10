@@ -1,0 +1,23 @@
+
+/* Popup style */
+.popup {
+    top:0px;
+    left:0px;
+    position: absolute;
+    min-width: 100vw;
+    min-height:100vh;
+    display: flex;
+  }
+  
+  .close-btn{
+    position:absolute;
+    min-height:100%;
+    min-width: 100%;
+    font-size: 100px;
+    font-weight: bolder;
+    color: white ;
+    background-color: red;
+  }
+  
+  
+  

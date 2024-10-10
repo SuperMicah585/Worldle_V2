@@ -1,2 +1,3 @@
-export { default } from '@mui/core/Portal';
-export * from '@mui/core/Portal';
+export { default } from './Portal';
+export * from './Portal';
+export * from './Portal.types';

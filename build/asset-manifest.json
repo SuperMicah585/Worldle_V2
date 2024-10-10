@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/Worldle_V2/static/css/main.a84764da.chunk.css",
-    "main.js": "/Worldle_V2/static/js/main.3742db7b.chunk.js",
-    "main.js.map": "/Worldle_V2/static/js/main.3742db7b.chunk.js.map",
-    "runtime-main.js": "/Worldle_V2/static/js/runtime-main.ba0ffc28.js",
-    "runtime-main.js.map": "/Worldle_V2/static/js/runtime-main.ba0ffc28.js.map",
-    "static/js/2.07ff5549.chunk.js": "/Worldle_V2/static/js/2.07ff5549.chunk.js",
-    "static/js/2.07ff5549.chunk.js.map": "/Worldle_V2/static/js/2.07ff5549.chunk.js.map",
-    "static/js/3.3f9144d2.chunk.js": "/Worldle_V2/static/js/3.3f9144d2.chunk.js",
-    "static/js/3.3f9144d2.chunk.js.map": "/Worldle_V2/static/js/3.3f9144d2.chunk.js.map",
+    "main.css": "/Worldle_V2/static/css/main.d9501cf7.css",
+    "main.js": "/Worldle_V2/static/js/main.0762185b.js",
+    "static/js/488.de2ef227.chunk.js": "/Worldle_V2/static/js/488.de2ef227.chunk.js",
     "index.html": "/Worldle_V2/index.html",
-    "static/css/main.a84764da.chunk.css.map": "/Worldle_V2/static/css/main.a84764da.chunk.css.map",
-    "static/js/2.07ff5549.chunk.js.LICENSE.txt": "/Worldle_V2/static/js/2.07ff5549.chunk.js.LICENSE.txt"
+    "main.d9501cf7.css.map": "/Worldle_V2/static/css/main.d9501cf7.css.map",
+    "main.0762185b.js.map": "/Worldle_V2/static/js/main.0762185b.js.map",
+    "488.de2ef227.chunk.js.map": "/Worldle_V2/static/js/488.de2ef227.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.ba0ffc28.js",
-    "static/js/2.07ff5549.chunk.js",
-    "static/css/main.a84764da.chunk.css",
-    "static/js/main.3742db7b.chunk.js"
+    "static/css/main.d9501cf7.css",
+    "static/js/main.0762185b.js"
   ]
 }

@@ -5,7 +5,6 @@ class Win extends React.Component {
 
   constructor(props) {
   super(props);
-console.log(this);
   this.state ={
     trigger: this.props["trigger"],
   };
@@ -16,14 +15,13 @@ console.log(this);
 
     render() {
       return (
-        <div>
+        <div style = {{zIndex:300}}>
         {(this.state["trigger"]) ? (
         <div className ="popup">
-        <div className ="popup-inner">
-        <button className="close-btn" onClick={() => this.setState({trigger: false})}>close</button>
-        {"   You win!"}
+
+        <button className="close-btn" onClick={() => this.setState({trigger: false})}>You Win!</button>
         </div>
-        </div>
+ 
       ) : "" }
         </div>
 

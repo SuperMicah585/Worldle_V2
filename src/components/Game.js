@@ -4,7 +4,7 @@ import "./Game.css"
 
 export default function Home() {
 return(
-<div className = "Worldle">
+<div className = "worldle">
 
 
 <div className = "Header">

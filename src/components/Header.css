@@ -1,7 +1,9 @@
 .Header {
-  padding: 10px;
-  text-align: center;
+  display:flex;
+  justify-content: center; /* Centers text horizontally */
+  align-items: center; /* Centers text vertically */
   background: black;
   color: white;
   font-size: 30px;
+
 }
