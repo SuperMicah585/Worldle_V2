@@ -1,8 +1,8 @@
 ## Project Name: 
-Twilio Area Code Map
+Worldle
 
 ## Purpose: 
-Allow Twilio customers to get a visual of Twilio's inventory and insight into available overlays that Twilio offers for regions.
+A Replication of the very popular game Worldle. This version is Worldle and really doesn't offer anything unique. 
 
 Live Demo: https://supermicah585.github.io/Worldle_V2/
 
